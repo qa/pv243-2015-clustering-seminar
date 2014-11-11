@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jboss-web version="8.0"
+           xmlns="http://www.jboss.com/xml/ns/javaee"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://www.jboss.com/xml/ns/javaee http://www.jboss.org/j2ee/schema/jboss-web_8_0.xsd">
+
+    <!--
+        Take a look at the XSD, fetch it from:
+        https://raw.github.com/jboss/metadata/master/web/src/main/resources/schema/jboss-web_8_0.xsd
+        or in the project's directory (for your convenience).
+    -->
+
+    <!--
+        TODO: Enable session passivation.
+        Only for testing, lets setup so that only 1 session will be active at a time. Rest will be passivated.
+        Session data is stored at this location: wildfly-8.2.0.Final/standalone/data/infinispan/web/default-host
+    -->
+
+</jboss-web>
