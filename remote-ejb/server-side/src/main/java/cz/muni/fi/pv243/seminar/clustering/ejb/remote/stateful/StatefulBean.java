@@ -21,22 +21,26 @@
  */
 package cz.muni.fi.pv243.seminar.clustering.ejb.remote.stateful;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import javax.ejb.Stateful;
 
 /**
  * @author Ondrej Chaloupka
  */
+@Stateful
 public class StatefulBean implements StatefulRemote {
+
+    private final List<String> stringList = new ArrayList<>();
 
     @Override
     public void addString(String str) {
-        // TODO: implement
-        throw new UnsupportedOperationException();
+        stringList.add(str);
     }
 
     @Override
     public List<String> getStrings() {
-        // TODO: implement
-        throw new UnsupportedOperationException();
+        return stringList;
     }
 }

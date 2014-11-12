@@ -21,9 +21,12 @@
  */
 package cz.muni.fi.pv243.seminar.clustering.ejb.remote.stateless;
 
+import javax.ejb.Remote;
+
 /**
  * @author Ondrej Chaloupka
  */
+@Remote
 public interface StatelessRemote {
 
     /**

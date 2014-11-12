@@ -30,8 +30,7 @@ public final class NodeNameGetter {
      * Returns name of the node where this is called.
      */
     public static String getNodeName() {
-        // TODO: Get property "jboss.node.name"
-        throw new UnsupportedOperationException();
+        return System.getProperty("jboss.node.name");
     }
 
     private NodeNameGetter() {
