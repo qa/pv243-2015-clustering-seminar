@@ -4,7 +4,12 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          version="3.0">
 
-    <!-- TODO: Configure clusterable app with 2 minute session timeout. -->
+    <!-- Clustering -->
+    <distributable/>
+
+    <session-config>
+        <session-timeout>2</session-timeout> <!-- minutes -->
+    </session-config>
 
     <!-- Welcome page with links to test scenarios -->
     <welcome-file-list>

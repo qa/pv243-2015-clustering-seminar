@@ -3,6 +3,7 @@ package cz.muni.fi.pv243.seminar.clustering;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.logging.Logger;
 
 import javax.servlet.http.HttpSessionActivationListener;
@@ -11,12 +12,10 @@ import javax.servlet.http.HttpSessionEvent;
 import org.wildfly.clustering.web.annotation.Immutable;
 
 /**
- * TODO: Looks like there is a bug here somewhere :-/ Please fix.
- *
  * @author Radoslav Husar
  */
 @Immutable
-public class SerialBean implements HttpSessionActivationListener {
+public class SerialBean implements Serializable, HttpSessionActivationListener {
 
     private static final Logger log = Logger.getLogger(SerialBean.class.getName());
 
@@ -42,10 +41,8 @@ public class SerialBean implements HttpSessionActivationListener {
      * @throws IOException
      */
     private void writeObject(ObjectOutputStream stream) throws IOException {
-
-        // TODO: serialize the object (use just the default method?)
-
-        // TODO: log we are writing the session
+        stream.defaultWriteObject();
+        log.info("Writing session.");
     }
 
     /**
@@ -55,10 +52,8 @@ public class SerialBean implements HttpSessionActivationListener {
      * @throws ClassNotFoundException
      */
     private void readObject(ObjectInputStream stream) throws IOException, ClassNotFoundException {
-
-        // TODO: deserialize the object
-
-        // TODO: add logging
+        stream.defaultReadObject();
+        log.info("Reading session.");
     }
 
     /**
@@ -67,8 +62,7 @@ public class SerialBean implements HttpSessionActivationListener {
      */
     @Override
     public void sessionWillPassivate(HttpSessionEvent se) {
-
-        // TODO: add logging
+        log.info("Session will passivate.");
     }
 
     /**
@@ -77,7 +71,6 @@ public class SerialBean implements HttpSessionActivationListener {
      */
     @Override
     public void sessionDidActivate(HttpSessionEvent se) {
-
-        // TODO: add logging
+        log.info("Session activated.");
     }
 }
